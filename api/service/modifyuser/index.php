@@ -10,18 +10,21 @@
 	if($method=='POST'){
         if(isset($data)){
             // Valida que no exista el usuario, si existe regresa un error
+            //@Código original por mi pana ZakiTheFoxo
             if(!validateNonExistingUsername($data,$mysqli)){
                 echo '{"status":501,"description":"Usuario ya registrado"}';
                 die();
             }
 
             // Valida que no exista el correo, si existe regresa un error
+            //@Código original por mi pana ZakiTheFoxo
             if(!validateNonExistingEmail($data,$mysqli)){
                 echo '{"status":501,"description":"Correo ya registrado"}';
                 die();
             }
 
             // Valida que no exista el celular, si existe regresa un error
+            //@Código original por mi pana ZakiTheFoxo
             if(!validateNonExistingCelular($data,$mysqli)){
                 echo '{"status":501,"description":"Celular ya registrado"}';
                 die();

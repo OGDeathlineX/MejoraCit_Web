@@ -8,7 +8,8 @@
      *
     */
     function modifyUser($data,$mysqli){
-        $sql = "INSERT INTO usuarios (username, correo, password, celular) VALUES ('$data[username]','$data[correo]','$data[password]', '$data[celular]')";
+        $username = $data['username'];
+        $sql = "UPDATE usuarios SET correo = '{$data['correo']}', password = '{$data['password']}', celular = '{$data['celular']}' WHERE username = '$username'";
         $result = $mysqli->query($sql);
         if($result){
             return true;
@@ -23,6 +24,7 @@
      * @param $data array con los datos del usuario
      * @param $mysqli conexion a la base de datos
      * @return boolean
+     * @Código original por mi pana ZakiTheFoxo
      *
     */
     function validateNonExistingUsername($data,$mysqli){
@@ -41,6 +43,7 @@
      * @param $data array con los datos del usuario
      * @param $mysqli conexion a la base de datos
      * @return boolean
+     * @Código original por mi pana ZakiTheFoxo
      *
     */
     function validateNonExistingEmail($data,$mysqli){
@@ -59,7 +62,7 @@
      * @param $data array con los datos del usuario
      * @param $mysqli conexion a la base de datos
      * @return boolean
-     *
+     * @Código original por mi pana ZakiTheFoxo
     */
     function validateNonExistingCelular($data,$mysqli){
         $sql = "SELECT * FROM usuarios WHERE celular = '$data[celular]'";
